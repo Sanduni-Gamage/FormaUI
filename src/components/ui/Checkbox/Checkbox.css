@@ -1,0 +1,98 @@
+.forma-checkbox-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.forma-checkbox-control {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-3);
+  min-height: 24px;
+}
+
+.forma-checkbox {
+  appearance: none;
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  margin: 2px 0 0;
+  border: 1px solid var(--border-control);
+  border-radius: var(--radius-sm);
+  background: var(--surface-primary);
+  cursor: pointer;
+  display: grid;
+  place-content: center;
+}
+
+.forma-checkbox:checked {
+  background: var(--color-primary-600);
+  border-color: var(--color-primary-600);
+}
+
+.forma-checkbox:checked::before {
+  content: "";
+  width: 5px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  margin-top: -2px;
+}
+
+.forma-checkbox:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+.forma-checkbox-label {
+  color: var(--text-primary);
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  cursor: pointer;
+  min-height: 24px;
+}
+
+.forma-checkbox-required {
+  color: var(--text-danger);
+}
+
+.forma-checkbox--error {
+  border-color: var(--border-danger);
+}
+
+.forma-checkbox--error:checked {
+  background: var(--color-primary-600);
+  border-color: var(--color-primary-600);
+}
+
+.forma-checkbox:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.forma-checkbox:disabled + .forma-checkbox-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.forma-checkbox-hint,
+.forma-checkbox-error {
+  margin: 0 0 0 32px;
+  font-size: var(--font-size-xs);
+  line-height: 1.5;
+}
+
+.forma-checkbox-hint {
+  color: var(--text-secondary);
+}
+
+.forma-checkbox-error {
+  color: var(--text-danger);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .forma-checkbox {
+    transition: none;
+  }
+}

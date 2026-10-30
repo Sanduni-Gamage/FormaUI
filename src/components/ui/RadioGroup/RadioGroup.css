@@ -1,0 +1,123 @@
+.forma-radio-fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.forma-radio-legend {
+  padding: 0;
+  margin-bottom: var(--spacing-2);
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.forma-radio-required {
+  color: var(--text-danger);
+}
+
+.forma-radio-group {
+  display: flex;
+  gap: var(--spacing-4);
+}
+
+.forma-radio-group--vertical {
+  flex-direction: column;
+}
+
+.forma-radio-group--horizontal {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.forma-radio-option {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  min-height: 24px;
+}
+
+.forma-radio-input {
+  appearance: none;
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  border: 1px solid var(--border-control);
+  border-radius: var(--radius-full);
+  background: var(--surface-primary);
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+
+.forma-radio-input::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  background: white;
+  transform: scale(0);
+}
+
+.forma-radio-input:checked {
+  background: var(--color-primary-600);
+  border-color: var(--color-primary-600);
+}
+
+.forma-radio-input:checked::before {
+  transform: scale(1);
+}
+
+.forma-radio-input:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+.forma-radio-label {
+  color: var(--text-primary);
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  cursor: pointer;
+  min-height: 24px;
+}
+
+.forma-radio-input:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.forma-radio-input:disabled + .forma-radio-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.forma-radio-fieldset:disabled .forma-radio-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.forma-radio-hint,
+.forma-radio-error {
+  margin: 0;
+  font-size: var(--font-size-xs);
+  line-height: 1.5;
+}
+
+.forma-radio-hint {
+  color: var(--text-secondary);
+}
+
+.forma-radio-error {
+  color: var(--text-danger);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .forma-radio-input {
+    transition: none;
+  }
+}

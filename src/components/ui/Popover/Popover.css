@@ -1,0 +1,89 @@
+.forma-popover-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.forma-popover {
+  position: absolute;
+  z-index: 1100;
+  width: max-content;
+  min-width: 220px;
+  max-width: min(320px, calc(100vw - 32px));
+  max-height: min(400px, calc(100vh - 32px));
+  overflow-y: auto;
+  padding: var(--spacing-4);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  background: var(--surface-primary);
+  color: var(--text-primary);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 14%);
+
+  /* Set by useKeepInViewport near a screen edge; `translate` composes with the
+     entry animation's `transform` instead of replacing it. */
+  translate: var(--forma-viewport-shift, 0px) 0;
+}
+
+.forma-popover[data-placement="bottom"] {
+  top: calc(100% + var(--spacing-2));
+  left: 0;
+}
+
+.forma-popover[data-placement="top"] {
+  bottom: calc(100% + var(--spacing-2));
+  left: 0;
+}
+
+.forma-popover[data-placement="right"] {
+  top: 0;
+  left: calc(100% + var(--spacing-2));
+}
+
+.forma-popover[data-placement="left"] {
+  top: 0;
+  right: calc(100% + var(--spacing-2));
+}
+
+.forma-popover-title {
+  margin: 0 0 var(--spacing-3);
+  color: var(--text-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.4;
+}
+
+.forma-popover-content {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+}
+
+.forma-popover-content > * + * {
+  margin-top: var(--spacing-3);
+}
+
+/* A fallback focus ring for plain interactive elements inside the popover.
+   :where() gives it zero specificity, so FormaUI components keep their own focus
+   styles (e.g. the red ring on an Input in an error state). */
+:where(.forma-popover) :where(button, a, input, select, textarea):focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .forma-popover {
+    animation: forma-popover-enter 120ms ease-out;
+  }
+
+  @keyframes forma-popover-enter {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

@@ -1,0 +1,91 @@
+.forma-input-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.forma-input-label {
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.forma-input-required {
+  color: var(--text-danger);
+}
+
+/* No width here, so fullWidth={false} lets the input keep its natural size. */
+.forma-input {
+  border: 1px solid var(--border-control);
+  border-radius: var(--radius-md);
+  background: var(--surface-primary);
+  color: var(--text-primary);
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.forma-input--sm {
+  min-height: 36px;
+  padding: 6px 10px;
+  font-size: var(--font-size-sm);
+}
+
+.forma-input--md {
+  min-height: 44px;
+  padding: 10px 12px;
+  font-size: var(--font-size-base);
+}
+
+.forma-input--lg {
+  min-height: 48px;
+  padding: 12px 14px;
+  font-size: var(--font-size-lg);
+}
+
+.forma-input--full-width {
+  width: 100%;
+}
+
+.forma-input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.8;
+}
+
+.forma-input:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-color: var(--focus-ring);
+}
+
+.forma-input--error {
+  border-color: var(--border-danger);
+}
+
+.forma-input--error:focus-visible {
+  outline-color: var(--border-danger);
+}
+
+.forma-input:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  background: var(--surface-secondary);
+}
+
+.forma-input-hint,
+.forma-input-error {
+  margin: 0;
+  font-size: var(--font-size-xs);
+}
+
+.forma-input-hint {
+  color: var(--text-secondary);
+}
+
+.forma-input-error {
+  color: var(--text-danger);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .forma-input {
+    transition: none;
+  }
+}

@@ -1,0 +1,6 @@
+/* Storybook only: the preview page follows the selected theme, so dark-theme stories
+   are shown (and captured by Chromatic) on a dark background, as in the app. */
+body {
+  background: var(--surface-primary);
+  color: var(--text-primary);
+}

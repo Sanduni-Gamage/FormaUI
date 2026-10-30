@@ -1,0 +1,120 @@
+.forma-modal {
+  /* Browsers centre a modal <dialog> with margin: auto, but Tailwind's base styles
+     reset every element's margin to 0, which pins it to the top-left corner. */
+  margin: auto;
+  width: min(90vw, 560px);
+  max-width: 560px;
+  max-height: 85vh;
+  padding: 0;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-xl);
+  background: var(--surface-primary);
+  color: var(--text-primary);
+  box-shadow: 0 20px 50px rgb(0 0 0 / 20%);
+  overflow: auto;
+}
+
+.forma-modal::backdrop {
+  background: rgb(15 23 42 / 60%);
+  backdrop-filter: blur(2px);
+}
+
+.forma-modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+  padding: var(--spacing-6);
+}
+
+.forma-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-4);
+}
+
+.forma-modal-heading {
+  min-width: 0;
+}
+
+.forma-modal-title {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.4;
+}
+
+.forma-modal-description {
+  margin: var(--spacing-2) 0 0;
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+}
+
+.forma-modal-close {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.forma-modal-close:hover {
+  background: var(--surface-secondary);
+  color: var(--text-primary);
+}
+
+.forma-modal-close:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.forma-modal-body {
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+/* Tailwind's base styles remove paragraph margins, so space the body's children
+   here. Only adds a top margin; each child keeps its own layout. */
+.forma-modal-body > * + * {
+  margin-top: var(--spacing-4);
+}
+
+@media (max-width: 480px) {
+  .forma-modal {
+    width: calc(100vw - 32px);
+    max-height: 90vh;
+  }
+
+  .forma-modal-content {
+    padding: var(--spacing-4);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .forma-modal {
+    animation: forma-modal-enter 160ms ease-out;
+  }
+
+  @keyframes forma-modal-enter {
+    from {
+      opacity: 0;
+      transform: translateY(8px) scale(0.98);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+}

@@ -1,0 +1,101 @@
+.forma-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-3);
+  padding: var(--spacing-4);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  background: var(--surface-secondary);
+  color: var(--text-primary);
+}
+
+.forma-alert-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-full);
+  font-weight: var(--font-weight-bold);
+}
+
+.forma-alert-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.forma-alert-title {
+  margin: 0 0 var(--spacing-1);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+}
+
+.forma-alert-message {
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+}
+
+/* 32px square so the target comfortably exceeds WCAG 2.2's 24px minimum. */
+.forma-alert-dismiss {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  margin: -4px -4px 0 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+}
+
+.forma-alert-dismiss:hover {
+  background: color-mix(in srgb, currentColor 10%, transparent);
+}
+
+.forma-alert-dismiss:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+.forma-alert--success {
+  border-color: var(--border-success);
+  background: color-mix(in srgb, var(--text-success) 8%, var(--surface-primary));
+}
+
+.forma-alert--success .forma-alert-icon {
+  color: var(--text-success);
+}
+
+.forma-alert--info {
+  border-color: var(--border-info);
+  background: color-mix(in srgb, var(--text-info) 8%, var(--surface-primary));
+}
+
+.forma-alert--info .forma-alert-icon {
+  color: var(--text-info);
+}
+
+.forma-alert--warning {
+  border-color: var(--border-warning);
+  background: color-mix(in srgb, var(--text-warning) 8%, var(--surface-primary));
+}
+
+.forma-alert--warning .forma-alert-icon {
+  color: var(--text-warning);
+}
+
+.forma-alert--error {
+  border-color: var(--border-danger);
+  background: color-mix(in srgb, var(--text-danger) 8%, var(--surface-primary));
+}
+
+.forma-alert--error .forma-alert-icon {
+  color: var(--text-danger);
+}

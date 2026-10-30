@@ -1,0 +1,137 @@
+.forma-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.forma-button--sm {
+  min-height: 36px;
+  padding: 7px 12px;
+  font-size: var(--font-size-sm);
+}
+
+.forma-button--md {
+  min-height: 44px;
+  padding: 10px 16px;
+  font-size: var(--font-size-base);
+}
+
+.forma-button--lg {
+  min-height: 48px;
+  padding: 12px 20px;
+  font-size: var(--font-size-lg);
+}
+
+/* Primary */
+
+.forma-button--primary {
+  background: var(--color-primary-600);
+  color: white;
+}
+
+.forma-button--primary:hover:not(:disabled) {
+  background: var(--color-primary-700);
+}
+
+/* Secondary */
+
+.forma-button--secondary {
+  background: var(--color-neutral-100);
+  color: var(--color-neutral-900);
+}
+
+.forma-button--secondary:hover:not(:disabled) {
+  background: var(--color-neutral-200);
+}
+
+/* Outline */
+
+.forma-button--outline {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--border-default);
+}
+
+.forma-button--outline:hover:not(:disabled) {
+  background: var(--surface-secondary);
+}
+
+/* Danger */
+
+.forma-button--danger {
+  background: var(--color-danger);
+  color: white;
+}
+
+.forma-button--danger:hover:not(:disabled) {
+  background: #991b1b;
+}
+
+/* Keyboard accessibility */
+
+.forma-button:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+/* Disabled */
+
+.forma-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Loading spinner */
+
+.forma-button__spinner {
+  width: 15px;
+  height: 15px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: forma-spin 700ms linear infinite;
+}
+
+@keyframes forma-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .forma-button {
+    transition: none;
+  }
+
+  .forma-button__spinner {
+    animation: none;
+  }
+}
+
+/* Dark theme.
+   The dark theme turns --color-primary-700 into a light blue (for text), so the
+   primary hover needs its own value. #1d4ed8 keeps white text at 6.7:1, the same
+   as the light theme's hover. (--color-primary-500 was only 3.67:1: A11Y-008.) */
+
+[data-theme="dark"] .forma-button--primary:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+[data-theme="dark"] .forma-button--secondary {
+  background: #334155;
+  color: #f8fafc;
+}
+
+[data-theme="dark"] .forma-button--secondary:hover:not(:disabled) {
+  background: #475569;
+}

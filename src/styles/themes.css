@@ -1,0 +1,59 @@
+:root {
+  color-scheme: light;
+
+  --surface-primary: var(--color-neutral-0);
+  --surface-secondary: var(--color-neutral-50);
+
+  --text-primary: var(--color-neutral-900);
+  --text-secondary: var(--color-neutral-700);
+  /* Brand-blue text: links, selected tabs, small accent labels. */
+  --text-accent: var(--color-primary-600);
+  --text-danger: var(--color-danger);
+
+  --border-default: var(--color-neutral-200);
+  /* Outline of form controls (inputs, checkboxes). Must reach 3:1 against
+     the surface behind it (WCAG 1.4.11), so it is darker than --border-default. */
+  --border-control: var(--color-neutral-500);
+  --border-danger: var(--color-danger);
+
+  /* Status colours for text, icons and borders (Alert, Badge, Toast).
+     Text tokens are a step darker than the base colours so small text still
+     reaches 4.5:1 on the tinted status backgrounds, not just on plain white. */
+  --text-success: #166534;
+  --border-success: var(--color-success);
+  --text-warning: #92400e;
+  --border-warning: var(--color-warning);
+  --text-info: var(--color-info);
+  --border-info: var(--color-info);
+
+  --focus-ring: var(--color-primary-600);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --surface-primary: #0f172a;
+  --surface-secondary: #1e293b;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  /* --color-primary-600 is only ~3:1 on dark surfaces; this blue reaches ~8-10:1. */
+  --text-accent: #93c5fd;
+  /* Lighter red so error text and borders stay readable on dark surfaces.
+     --color-danger itself stays dark for filled backgrounds like the Danger button. */
+  --text-danger: #f87171;
+
+  --border-default: #475569;
+  --border-control: #94a3b8;
+  --border-danger: #f87171;
+
+  /* Lighter status colours so they stay readable on dark surfaces. */
+  --text-success: #4ade80;
+  --border-success: #4ade80;
+  --text-warning: #fbbf24;
+  --border-warning: #fbbf24;
+  --text-info: #60a5fa;
+  --border-info: #60a5fa;
+
+  --focus-ring: #93c5fd;
+}

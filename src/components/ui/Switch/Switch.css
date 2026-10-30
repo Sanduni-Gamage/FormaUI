@@ -1,0 +1,160 @@
+.forma-switch {
+  /* Track width per size; also used to line up hint and error text with the label. */
+  --forma-switch-track-width: 40px;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.forma-switch--full-width {
+  width: 100%;
+}
+
+.forma-switch-label {
+  /* Keeps the visually hidden input positioned inside the label, not the page. */
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  width: fit-content;
+  cursor: pointer;
+  color: var(--text-primary);
+  font-size: var(--font-size-base);
+}
+
+/* Full width: a settings row with the label text on the left and the switch at the
+   far right. Only the visual order changes; the input still comes first in the DOM,
+   so focus order and the accessible name are unchanged. */
+.forma-switch--full-width .forma-switch-label {
+  width: 100%;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.forma-switch--full-width .forma-switch-hint,
+.forma-switch--full-width .forma-switch-error {
+  padding-left: 0;
+}
+
+.forma-switch-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  opacity: 0;
+}
+
+.forma-switch-track {
+  display: inline-flex;
+  align-items: center;
+  width: var(--forma-switch-track-width);
+  height: 24px;
+  padding: 3px;
+  flex-shrink: 0;
+  border: 1px solid var(--border-control);
+  border-radius: var(--radius-full);
+  background: var(--surface-secondary);
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease;
+}
+
+.forma-switch-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--text-secondary);
+  transition:
+    transform 150ms ease,
+    background-color 150ms ease;
+}
+
+.forma-switch-input:checked + .forma-switch-track {
+  background: var(--color-primary-600);
+  border-color: var(--color-primary-600);
+}
+
+.forma-switch-input:checked + .forma-switch-track .forma-switch-thumb {
+  background: var(--color-neutral-0);
+  transform: translateX(16px);
+}
+
+.forma-switch-input:focus-visible + .forma-switch-track {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+.forma-switch-input:disabled + .forma-switch-track {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.forma-switch-label:has(.forma-switch-input:disabled) {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.forma-switch-text {
+  line-height: 1.5;
+}
+
+.forma-switch--sm {
+  --forma-switch-track-width: 32px;
+}
+
+.forma-switch--sm .forma-switch-track {
+  height: 20px;
+}
+
+.forma-switch--sm .forma-switch-thumb {
+  width: 12px;
+  height: 12px;
+}
+
+.forma-switch--sm .forma-switch-input:checked + .forma-switch-track .forma-switch-thumb {
+  transform: translateX(12px);
+}
+
+.forma-switch--lg {
+  --forma-switch-track-width: 48px;
+}
+
+.forma-switch--lg .forma-switch-track {
+  height: 28px;
+}
+
+.forma-switch--lg .forma-switch-thumb {
+  width: 20px;
+  height: 20px;
+}
+
+.forma-switch--lg .forma-switch-input:checked + .forma-switch-track .forma-switch-thumb {
+  transform: translateX(20px);
+}
+
+.forma-switch-hint,
+.forma-switch-error {
+  margin: 0;
+  padding-left: calc(var(--forma-switch-track-width) + var(--spacing-3));
+  font-size: var(--font-size-sm);
+}
+
+.forma-switch-hint {
+  color: var(--text-secondary);
+}
+
+.forma-switch-error {
+  color: var(--text-danger);
+}
+
+.forma-switch--error .forma-switch-track {
+  border-color: var(--border-danger);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .forma-switch-track,
+  .forma-switch-thumb {
+    transition: none;
+  }
+}
