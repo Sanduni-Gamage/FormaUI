@@ -62,7 +62,7 @@ demonstrates them, in the light and dark themes.
 
 ## 7. Automated Testing
 
-- [x] Vitest suite passes (173 tests, 13 files)
+- [x] Vitest suite passes (175 tests, 14 files)
 - [x] jest-axe checks pass (every component has an axe test)
 - [x] Storybook stories render (85 stories across 13 components; `build-storybook` passes)
 - [x] Production build passes
@@ -100,11 +100,11 @@ screen reader has been used yet.
 
 ## Automated Results
 
-Final run, 2026-11-17:
+Final run, 2026-11-19 (rerun after the Stage 14 token refactor and new foundation pages):
 
 | Check | Command | Result |
 | --- | --- | --- |
-| Unit and component tests (with jest-axe) | `npm run test:run` | 173 passed, 13 files |
+| Unit and component tests (with jest-axe) | `npm run test:run` | 175 passed, 14 files |
 | Lint | `npm run lint` | No problems |
 | Production build | `npm run build` | Passes |
 | Storybook build | `npm run build-storybook` | Passes; 85 stories render |
@@ -123,9 +123,9 @@ Page scans (axe, WCAG 2.0 to 2.2 A and AA tags plus best practice):
 | Page | Light | Dark | Heading outline |
 | --- | --- | --- | --- |
 | Overview | Pass | Pass | h1 Overview, h2 Color palette, h2 Button components |
-| Colors | Pass | Pass | h1 Colors, h2 Color palette |
-| Typography | Pass | Pass | h1 Typography, h2 Typography foundations |
-| Spacing | Pass | Pass | h1 Spacing, h2 Spacing foundations |
+| Colors | Pass | Pass | h1 Colors, h2 Brand palette / Neutral palette / Status palette / Semantic tokens |
+| Typography | Pass | Pass | h1 Typography, h2 Typography foundations / Font sizes / Font weights |
+| Spacing | Pass | Pass | h1 Spacing, h2 Spacing foundations / Border radius |
 | Buttons | Pass | Pass | h1 Buttons, h2 Button components |
 | Form Elements | Pass | Pass | h1 Form Elements, h2 Input / Checkbox / Radio Group / Select / Switch |
 | Feedback | Pass | Pass | h1 Feedback, h2 Alerts (h3 for each Alert title), h2 Badges, h2 Toasts |

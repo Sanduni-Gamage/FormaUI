@@ -20,6 +20,11 @@ const colors = [
     description: "Errors and destructive actions",
   },
   {
+    name: "Info",
+    token: "--color-info",
+    description: "Informational messages",
+  },
+  {
     name: "Neutral",
     token: "--color-neutral-500",
     description: "Secondary interface elements",
@@ -32,7 +37,7 @@ export default function ColorPalette() {
       <div className="panel-heading">
         <div>
           <h2>Color palette</h2>
-          <p>Centralised semantic design tokens</p>
+          <p>Core colours from the token palette</p>
         </div>
         <span className="panel-link">Design foundations</span>
       </div>

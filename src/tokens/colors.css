@@ -1,23 +1,41 @@
+/* Raw palette. These values never change between themes: components don't use
+   them directly, they use the semantic tokens in src/styles/themes.css, which pick
+   a palette value for each theme. */
 :root {
   /* Brand */
   --color-primary-50: #eff6ff;
   --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
   --color-primary-500: #3b82f6;
   --color-primary-600: #2563eb;
   --color-primary-700: #1d4ed8;
+  --color-primary-900: #1e3a8a;
 
-  /* Semantic */
+  /* Status. The base colour is for fills and borders on light surfaces; -dark is
+     for small text on light tints; -light is for text and borders on dark surfaces. */
   --color-success: #15803d;
+  --color-success-dark: #166534;
+  --color-success-light: #4ade80;
   --color-warning: #a16207;
+  --color-warning-dark: #92400e;
+  --color-warning-light: #fbbf24;
   --color-danger: #b91c1c;
+  --color-danger-dark: #991b1b;
+  --color-danger-light: #f87171;
   --color-info: #1d4ed8;
+  --color-info-light: #60a5fa;
 
   /* Neutral */
   --color-neutral-0: #ffffff;
   --color-neutral-50: #f8fafc;
   --color-neutral-100: #f1f5f9;
   --color-neutral-200: #e2e8f0;
+  --color-neutral-300: #cbd5e1;
+  --color-neutral-400: #94a3b8;
   --color-neutral-500: #64748b;
+  --color-neutral-600: #475569;
   --color-neutral-700: #334155;
+  --color-neutral-800: #1e293b;
   --color-neutral-900: #0f172a;
 }

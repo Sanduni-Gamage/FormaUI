@@ -60,13 +60,13 @@
   width: 10px;
   height: 10px;
   border-radius: var(--radius-full);
-  background: white;
+  background: var(--control-mark);
   transform: scale(0);
 }
 
 .forma-radio-input:checked {
-  background: var(--color-primary-600);
-  border-color: var(--color-primary-600);
+  background: var(--control-checked);
+  border-color: var(--control-checked);
 }
 
 .forma-radio-input:checked::before {

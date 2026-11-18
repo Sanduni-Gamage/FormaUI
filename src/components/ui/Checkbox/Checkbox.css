@@ -26,15 +26,15 @@
 }
 
 .forma-checkbox:checked {
-  background: var(--color-primary-600);
-  border-color: var(--color-primary-600);
+  background: var(--control-checked);
+  border-color: var(--control-checked);
 }
 
 .forma-checkbox:checked::before {
   content: "";
   width: 5px;
   height: 9px;
-  border: solid white;
+  border: solid var(--control-mark);
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
   margin-top: -2px;
@@ -62,8 +62,8 @@
 }
 
 .forma-checkbox--error:checked {
-  background: var(--color-primary-600);
-  border-color: var(--color-primary-600);
+  background: var(--control-checked);
+  border-color: var(--control-checked);
 }
 
 .forma-checkbox:disabled {

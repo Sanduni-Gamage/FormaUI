@@ -11,6 +11,11 @@ import ButtonShowcase from "./components/dashboard/ButtonShowcase";
 import { FeedbackShowcase } from "./components/dashboard/FeedbackShowcase";
 import { OverlaysShowcase } from "./components/dashboard/OverlaysShowcase";
 import { NavigationShowcase } from "./components/dashboard/NavigationShowcase";
+import {
+  ColorFoundations,
+  SpacingFoundations,
+  TypographyFoundations,
+} from "./components/dashboard/Foundations";
 import { Input } from "./components/ui/Input";
 import { Checkbox } from "./components/ui/Checkbox";
 import { RadioGroup } from "./components/ui/RadioGroup";
@@ -256,13 +261,13 @@ function PageContent({ page }: { page: Page }) {
           <section className="stats-grid">
             <StatCard
               title="Design tokens"
-              value="30+"
-              description="Foundation variables"
+              value="87"
+              description="57 palette and scale tokens, 30 semantic"
             />
             <StatCard
               title="Components"
-              value="12"
-              description="Planned reusable components"
+              value="13"
+              description="Typed, tested and documented"
             />
             <StatCard
               title="Themes"
@@ -272,7 +277,7 @@ function PageContent({ page }: { page: Page }) {
             <StatCard
               title="Accessibility"
               value="AA"
-              description="WCAG 2.2 target"
+              description="WCAG 2.2 target, audited"
             />
           </section>
 
@@ -282,44 +287,16 @@ function PageContent({ page }: { page: Page }) {
       );
 
     case "colors":
-      return <ColorPalette />;
+      return <ColorFoundations />;
 
     case "buttons":
       return <ButtonShowcase />;
 
     case "typography":
-      return (
-        <section className="panel typography-panel">
-          <h2>Typography foundations</h2>
-          <p>Consistent typography creates a clear visual hierarchy.</p>
-          {/* Visual samples of heading styles, deliberately not real headings,
-              so they don't become part of the page's outline. */}
-          <div className="type-sample type-sample-h1">Heading 1: Design better.</div>
-          <div className="type-sample type-sample-h2">Heading 2: Reusable components.</div>
-          <div className="type-sample type-sample-h3">Heading 3: Consistent interfaces.</div>
-          <p>Body text: Build accessible interfaces for everyone.</p>
-          <small>Caption text: Supporting information.</small>
-        </section>
-      );
+      return <TypographyFoundations />;
 
     case "spacing":
-      return (
-        <section className="panel">
-          <h2>Spacing foundations</h2>
-          <p>Our spacing scale is based on multiples of four.</p>
-          {[1, 2, 3, 4, 6, 8, 10, 12].map((value) => (
-            <div className="spacing-example" key={value}>
-              <code>--spacing-{value}</code>
-              <div
-                className="spacing-block"
-                style={{
-                  width: `var(--spacing-${value})`,
-                }}
-              />
-            </div>
-          ))}
-        </section>
-      );
+      return <SpacingFoundations />;
 
     case "forms":
       return <FormsShowcase />;

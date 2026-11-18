@@ -37,7 +37,7 @@ button:disabled {
 }
 
 :where(a):hover {
-  color: var(--color-primary-700);
+  color: var(--text-accent-hover);
   text-decoration-thickness: 2px;
 }
 
@@ -47,9 +47,6 @@ button:disabled {
   border-radius: var(--radius-sm);
 }
 
-:where([data-theme="dark"] a):hover {
-  color: #bfdbfe;
-}
 
 .app-shell {
   display: flex;
@@ -117,8 +114,8 @@ button:disabled {
 
 .nav-item:hover,
 .nav-item:focus-visible {
-  background: var(--color-primary-50);
-  color: var(--color-primary-700);
+  background: var(--surface-accent);
+  color: var(--text-on-accent);
 }
 
 .nav-item:focus-visible,
@@ -223,8 +220,8 @@ button:disabled {
 }
 
 .version-pill {
-  background: var(--color-primary-50);
-  color: var(--color-primary-700);
+  background: var(--surface-accent);
+  color: var(--text-on-accent);
   padding: 9px 13px;
   border-radius: 20px;
   white-space: nowrap;
@@ -292,7 +289,7 @@ button:disabled {
 
 .color-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: 16px;
 }
 
@@ -427,17 +424,6 @@ button:disabled {
   }
 }
 
-.app-shell[data-theme="dark"] {
-  --surface-primary: #0f172a;
-  --surface-secondary: #1e293b;
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --border-default: #475569;
-  --focus-ring: #93c5fd;
-  --color-primary-50: #1e3a8a;
-  --color-primary-700: #dbeafe;
-}
-
 .nav-item {
   width: 100%;
   font: inherit;
@@ -448,8 +434,8 @@ button:disabled {
 }
 
 .nav-item.active {
-  background: var(--color-primary-50);
-  color: var(--color-primary-700);
+  background: var(--surface-accent);
+  color: var(--text-on-accent);
   font-weight: 600;
 }
 
@@ -497,4 +483,125 @@ button:disabled {
   height: 16px;
   background: var(--color-primary-600);
   border-radius: 3px;
+}
+
+/* Token displays on the Colors, Typography and Spacing pages. */
+
+.swatch-grid,
+.token-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 16px;
+}
+
+.swatch-grid li {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.token-swatch {
+  display: block;
+  height: 48px;
+  border-radius: var(--radius-md);
+  /* A swatch that matches its surface still needs a visible edge. */
+  border: 1px solid var(--border-default);
+}
+
+.swatch-grid code,
+.token-list code,
+.token-table code {
+  font-size: var(--font-size-xs);
+  overflow-wrap: anywhere;
+}
+
+.token-value,
+.token-role {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.token-list li {
+  display: grid;
+  grid-template-columns: minmax(0, 11rem) 4rem minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.token-list li:last-child {
+  border-bottom: 0;
+}
+
+.token-preview {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.token-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.token-table th,
+.token-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--border-default);
+  text-align: left;
+  vertical-align: top;
+}
+
+.token-table thead th {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+}
+
+.token-table thead th:first-child {
+  width: 50%;
+}
+
+.token-table .token-group {
+  padding-top: 20px;
+  font-size: var(--font-size-sm);
+}
+
+/* Token name above its role. Blocks, not flex on the cell, so the cell keeps its
+   table semantics for screen readers. */
+.token-table td:first-child code,
+.token-table .token-role {
+  display: block;
+}
+
+.token-table .token-role {
+  margin-top: 4px;
+}
+
+.token-table .token-swatch {
+  width: 40px;
+  height: 24px;
+  margin-bottom: 4px;
+}
+
+.token-sample {
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .token-list li {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .token-preview,
+  .token-list .spacing-block {
+    grid-column: 1 / -1;
+  }
 }

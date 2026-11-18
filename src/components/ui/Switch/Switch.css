@@ -71,12 +71,12 @@
 }
 
 .forma-switch-input:checked + .forma-switch-track {
-  background: var(--color-primary-600);
-  border-color: var(--color-primary-600);
+  background: var(--control-checked);
+  border-color: var(--control-checked);
 }
 
 .forma-switch-input:checked + .forma-switch-track .forma-switch-thumb {
-  background: var(--color-neutral-0);
+  background: var(--control-mark);
   transform: translateX(16px);
 }
 

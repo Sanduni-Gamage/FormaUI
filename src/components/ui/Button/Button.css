@@ -35,23 +35,23 @@
 /* Primary */
 
 .forma-button--primary {
-  background: var(--color-primary-600);
-  color: white;
+  background: var(--action-primary-bg);
+  color: var(--action-primary-text);
 }
 
 .forma-button--primary:hover:not(:disabled) {
-  background: var(--color-primary-700);
+  background: var(--action-primary-bg-hover);
 }
 
 /* Secondary */
 
 .forma-button--secondary {
-  background: var(--color-neutral-100);
-  color: var(--color-neutral-900);
+  background: var(--action-secondary-bg);
+  color: var(--action-secondary-text);
 }
 
 .forma-button--secondary:hover:not(:disabled) {
-  background: var(--color-neutral-200);
+  background: var(--action-secondary-bg-hover);
 }
 
 /* Outline */
@@ -69,12 +69,12 @@
 /* Danger */
 
 .forma-button--danger {
-  background: var(--color-danger);
-  color: white;
+  background: var(--action-danger-bg);
+  color: var(--action-danger-text);
 }
 
 .forma-button--danger:hover:not(:disabled) {
-  background: #991b1b;
+  background: var(--action-danger-bg-hover);
 }
 
 /* Keyboard accessibility */
@@ -118,20 +118,3 @@
   }
 }
 
-/* Dark theme.
-   The dark theme turns --color-primary-700 into a light blue (for text), so the
-   primary hover needs its own value. #1d4ed8 keeps white text at 6.7:1, the same
-   as the light theme's hover. (--color-primary-500 was only 3.67:1: A11Y-008.) */
-
-[data-theme="dark"] .forma-button--primary:hover:not(:disabled) {
-  background: #1d4ed8;
-}
-
-[data-theme="dark"] .forma-button--secondary {
-  background: #334155;
-  color: #f8fafc;
-}
-
-[data-theme="dark"] .forma-button--secondary:hover:not(:disabled) {
-  background: #475569;
-}
