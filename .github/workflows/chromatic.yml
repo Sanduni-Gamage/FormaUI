@@ -30,6 +30,12 @@ jobs:
           # Chromatic uses the Git history to find the right baseline.
           fetch-depth: 0
 
+      - name: Ensure complete Git history
+        run: |
+          if [ "$(git rev-parse --is-shallow-repository)" = "true" ]; then
+            git fetch --prune --unshallow --tags
+          fi
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
