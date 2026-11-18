@@ -6,7 +6,10 @@ const PORT = 5199;
 
 export default defineConfig({
   testDir: "./tests",
-  reporter: "list",
+  // A stray test.only would silently skip the rest of the suite in CI.
+  forbidOnly: !!process.env.CI,
+  // In CI, also write an HTML report; the workflow uploads it when a test fails.
+  reporter: process.env.CI ? [["list"], ["html", { open: "never" }]] : "list",
   use: {
     baseURL: `http://localhost:${PORT}`,
   },

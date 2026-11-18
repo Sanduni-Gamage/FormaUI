@@ -15,7 +15,8 @@
     "test:a11y": "playwright test",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "chromatic": "node --env-file-if-exists=.env node_modules/chromatic/dist/bin.cjs"
+    "chromatic": "node --env-file-if-exists=.env node_modules/chromatic/dist/bin.cjs",
+    "type-check": "tsc -b"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.5",
