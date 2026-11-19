@@ -1,6 +1,6 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import App from "./App";
 
@@ -23,7 +23,8 @@ const components = readdirSync(join(src, "components", "ui"), { withFileTypes: t
 ).length;
 
 function statCard(title: string) {
-  const card = screen.getByText(title).closest("article");
+  const stats = screen.getByRole("region", { name: "FormaUI at a glance" });
+  const card = within(stats).getByText(title).closest("article");
   if (!card) throw new Error(`No stat card titled ${title}`);
   return card;
 }

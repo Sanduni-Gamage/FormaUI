@@ -122,11 +122,11 @@ Page scans (axe, WCAG 2.0 to 2.2 A and AA tags plus best practice):
 
 | Page | Light | Dark | Heading outline |
 | --- | --- | --- | --- |
-| Overview | Pass | Pass | h1 Overview, h2 Color palette, h2 Button components |
+| Overview | Pass | Pass | h1 Overview (in the hero), h2 Explore the system (h3 Foundations, Components), h2 Built-in quality |
 | Colors | Pass | Pass | h1 Colors, h2 Brand palette / Neutral palette / Status palette / Semantic tokens |
 | Typography | Pass | Pass | h1 Typography, h2 Typography foundations / Font sizes / Font weights |
 | Spacing | Pass | Pass | h1 Spacing, h2 Spacing foundations / Border radius |
-| Buttons | Pass | Pass | h1 Buttons, h2 Button components |
+| Buttons | Pass | Pass | h1 Buttons, h2 Button components (h3 Variants, Sizes, States) |
 | Form Elements | Pass | Pass | h1 Form Elements, h2 Input / Checkbox / Radio Group / Select / Switch |
 | Feedback | Pass | Pass | h1 Feedback, h2 Alerts (h3 for each Alert title), h2 Badges, h2 Toasts |
 | Overlays | Pass | Pass | h1 Overlays, h2 Modal, h2 Tooltip, h2 Popover (h3 popover title) |

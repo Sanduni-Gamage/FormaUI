@@ -34,6 +34,11 @@ const preview: Preview = {
     },
   ],
   parameters: {
+    options: {
+      storySort: {
+        order: ['Introduction', 'Components', ['Button', 'Forms', 'Feedback', 'Overlays', 'Navigation']],
+      },
+    },
     controls: {
       matchers: {
        color: /(background|color)$/i,

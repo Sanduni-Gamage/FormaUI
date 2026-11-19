@@ -1,0 +1,44 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Introduction" />
+
+# FormaUI Design System
+
+FormaUI is an accessible React component library built with TypeScript. Every
+component here is typed, tested and built on shared design tokens, and works in both
+the light and dark themes.
+
+## Using this Storybook
+
+- **Switch theme** with the **Theme** button in the toolbar above a story. Every story
+  works in Light and Dark.
+- **Change props** in the **Controls** panel under a story.
+- **Check accessibility** in the **Accessibility** panel, which runs axe on the
+  current story.
+- **Read the API** on each component's **Docs** page, generated from its TypeScript
+  types.
+
+## Components
+
+- **Actions:** Button
+- **Forms:** Input, Checkbox, RadioGroup, Select, Switch
+- **Feedback:** Alert, Badge, Toast
+- **Overlays:** Modal, Tooltip, Popover
+- **Navigation:** Tabs
+
+## Principles
+
+- **Native first.** Components render the HTML element that already has the right
+  semantics and keyboard behaviour, and add ARIA only where HTML has no equivalent.
+- **Tokens, not values.** Components use semantic tokens such as `--text-primary` or
+  `--action-primary-bg`, so a theme restyles everything without component changes.
+- **Accessible by default.** Visible labels, linked hints and errors, visible focus,
+  4.5:1 text contrast and reduced-motion support are part of every component.
+- **Tested.** Unit tests with axe checks, browser tests of keyboard behaviour and
+  layout, and visual snapshots of every story in both themes.
+
+## Learn more
+
+- [Source code on GitHub](https://github.com/Sanduni-Gamage/FormaUI)
+- [Architecture](https://github.com/Sanduni-Gamage/FormaUI/blob/main/docs/architecture.md)
+- [Accessibility audit](https://github.com/Sanduni-Gamage/FormaUI/blob/main/docs/accessibility-audit.md)

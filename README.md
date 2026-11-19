@@ -30,7 +30,8 @@ push by GitHub Actions and Chromatic.
 | --- | --- |
 | UI | React 19, TypeScript |
 | Build | Vite |
-| Styling | CSS custom properties (design tokens), plain CSS per component, Tailwind CSS v4 for its base reset |
+| Styling | CSS custom properties (design tokens), plain CSS per component, Tailwind CSS v4 for its base reset, Inter (self-hosted) |
+| Icons | Lucide (dashboard only; components have no icon dependency) |
 | Documentation | Storybook 10 with the a11y and docs addons |
 | Unit and component tests | Vitest, React Testing Library, jest-axe |
 | Browser tests | Playwright with axe-core |

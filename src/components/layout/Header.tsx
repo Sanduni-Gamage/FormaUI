@@ -1,21 +1,23 @@
+import { Moon, Sun } from "lucide-react";
+import type { PageInfo } from "./pages";
+
 type HeaderProps = {
-  pageTitle: string;
+  page: PageInfo;
   darkMode: boolean;
   onToggleTheme: () => void;
 };
 
-export default function Header({
-  pageTitle,
-  darkMode,
-  onToggleTheme,
-}: HeaderProps) {
+export default function Header({ page, darkMode, onToggleTheme }: HeaderProps) {
+  const ThemeIcon = darkMode ? Sun : Moon;
+
   return (
     <header className="header">
-      <div>
-        <span className="breadcrumb">Design System /</span>{" "}
-        {/* The page's one main heading; styled to read as part of the breadcrumb. */}
-        <h1 className="header-page-title">{pageTitle}</h1>
-      </div>
+      {/* Where you are. The page's main heading is its title in the page intro. */}
+      <p className="breadcrumb">
+        <span>{page.section}</span>
+        <span aria-hidden="true">/</span>
+        <span className="breadcrumb-current">{page.title}</span>
+      </p>
 
       <div className="header-actions">
         <span className="version">v1.0.0</span>
@@ -25,7 +27,8 @@ export default function Header({
           onClick={onToggleTheme}
           aria-label={`Switch to ${darkMode ? "light" : "dark"} theme`}
         >
-          {darkMode ? "☀ Light" : "☾ Dark"}
+          <ThemeIcon size={16} aria-hidden="true" />
+          {darkMode ? "Light" : "Dark"}
         </button>
       </div>
     </header>

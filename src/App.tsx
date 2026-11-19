@@ -1,16 +1,15 @@
 import { useState } from "react";
 
-import Sidebar, {
-  type Page,
-} from "./components/layout/Sidebar";
+import Sidebar from "./components/layout/Sidebar";
+import PageIntro from "./components/layout/PageIntro";
+import { pageInfo, type Page } from "./components/layout/pages";
 
 import Header from "./components/layout/Header";
-import StatCard from "./components/dashboard/StatCard";
-import ColorPalette from "./components/dashboard/ColorPalette";
 import ButtonShowcase from "./components/dashboard/ButtonShowcase";
 import { FeedbackShowcase } from "./components/dashboard/FeedbackShowcase";
 import { OverlaysShowcase } from "./components/dashboard/OverlaysShowcase";
 import { NavigationShowcase } from "./components/dashboard/NavigationShowcase";
+import { OverviewPage } from "./components/dashboard/OverviewPage";
 import {
   ColorFoundations,
   SpacingFoundations,
@@ -21,18 +20,6 @@ import { Checkbox } from "./components/ui/Checkbox";
 import { RadioGroup } from "./components/ui/RadioGroup";
 import { Select } from "./components/ui/Select";
 import { Switch } from "./components/ui/Switch";
-
-const pageTitles: Record<Page, string> = {
-  overview: "Overview",
-  colors: "Colors",
-  typography: "Typography",
-  spacing: "Spacing",
-  buttons: "Buttons",
-  forms: "Form Elements",
-  feedback: "Feedback",
-  navigation: "Navigation",
-  overlays: "Overlays",
-};
 
 function FormsShowcase() {
   return (
@@ -238,53 +225,16 @@ function FormsShowcase() {
   );
 }
 
-function PageContent({ page }: { page: Page }) {
+function PageContent({
+  page,
+  onNavigate,
+}: {
+  page: Page;
+  onNavigate: (page: Page) => void;
+}) {
   switch (page) {
     case "overview":
-      return (
-        <>
-          <section className="welcome-section">
-            <div>
-              <span className="eyebrow">YOUR DESIGN SYSTEM</span>
-              {/* A tagline, not a heading: the page's h1 is the title in the header. */}
-              <p className="welcome-title">Design with consistency.</p>
-              <p>
-                Build accessible, reusable and beautiful
-                user interfaces with FormaUI.
-              </p>
-            </div>
-            <span className="version-pill">
-              <span aria-hidden="true">●</span> Version 1.0
-            </span>
-          </section>
-
-          <section className="stats-grid">
-            <StatCard
-              title="Design tokens"
-              value="87"
-              description="57 palette and scale tokens, 30 semantic"
-            />
-            <StatCard
-              title="Components"
-              value="13"
-              description="Typed, tested and documented"
-            />
-            <StatCard
-              title="Themes"
-              value="2"
-              description="Light and dark modes"
-            />
-            <StatCard
-              title="Accessibility"
-              value="AA"
-              description="WCAG 2.2 target, audited"
-            />
-          </section>
-
-          <ColorPalette />
-          <ButtonShowcase />
-        </>
-      );
+      return <OverviewPage onNavigate={onNavigate} />;
 
     case "colors":
       return <ColorFoundations />;
@@ -318,28 +268,30 @@ function PageContent({ page }: { page: Page }) {
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [activePage, setActivePage] = useState<Page>("overview");
+  const page = pageInfo[activePage];
 
   return (
-    <div
-      className="app-shell"
-      data-theme={darkMode ? "dark" : "light"}
-    >
-      <Sidebar
-        activePage={activePage}
-        onNavigate={setActivePage}
-      />
+    <div className="app-shell" data-theme={darkMode ? "dark" : "light"}>
+      {/* Lets keyboard users jump past the navigation (WCAG 2.4.1). */}
+      <a className="skip-link" href="#main-content">
+        Skip to main content
+      </a>
 
-      <main className="main-content">
+      <Sidebar activePage={activePage} onNavigate={setActivePage} />
+
+      <div className="main-content">
         <Header
-          pageTitle={pageTitles[activePage]}
+          page={page}
           darkMode={darkMode}
           onToggleTheme={() => setDarkMode((current) => !current)}
         />
 
-        <div className="dashboard-content">
-          <PageContent page={activePage} />
-        </div>
-      </main>
+        <main id="main-content" className="dashboard-content" tabIndex={-1}>
+          {/* The Overview's hero is its intro, with the page title inside it. */}
+          {activePage !== "overview" && <PageIntro page={page} />}
+          <PageContent page={activePage} onNavigate={setActivePage} />
+        </main>
+      </div>
     </div>
   );
 }

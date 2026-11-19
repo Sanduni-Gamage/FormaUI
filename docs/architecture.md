@@ -109,6 +109,16 @@ showcase app with 9 pages (Overview, Colors, Typography, Spacing, Buttons, Form
 Elements, Feedback, Overlays, Navigation). It uses the library the way a product
 would, and it is what the Playwright tests run against.
 
+- `layout/pages.ts` is the single list of pages (title, section, description, icon),
+  shared by the sidebar, the header breadcrumb, each page's intro and the Overview.
+- Each page starts with an intro holding its one `<h1>`; the Overview's is inside its
+  hero.
+- A "Skip to main content" link (WCAG 2.4.1) jumps past the navigation to `<main>`.
+- The header is sticky; `scroll-padding-top` keeps keyboard-focused elements from
+  scrolling underneath it (WCAG 2.4.11), which the keyboard sweep test checks.
+- Icons come from Lucide and are always decorative (`aria-hidden`); the library
+  components themselves have no icon dependency.
+
 ### Storybook
 
 `.storybook/` configures Storybook with the accessibility and docs addons. Each
@@ -170,5 +180,5 @@ Still open:
 - **Overlay positioning is horizontal only.** Tooltip and Popover are kept inside
   the viewport sideways but don't flip vertically.
 - **The dashboard shell has a few raw colours.** The showcase app's own CSS
-  (`src/index.css`, not the component library) still sets the page background, the
-  logo tile, the status dot and the spacing bars with palette colours or hex values.
+  (`src/index.css`, not the component library) still uses palette colours directly
+  for the logo tile's gradient and the spacing bars on the Spacing page.
